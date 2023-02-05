@@ -4,6 +4,20 @@
 functions.isWebp(); //запуск функции определения поддержки webp */
 
 window.onload = function(){
+    const header = document.querySelector('.header');
+    if(header){
+        if(window.scrollY){
+            header.classList.add('scroll');
+        }
+        window.addEventListener('scroll', function(e){
+            if(window.scrollY){
+                header.classList.add('scroll');
+            } else{
+                header.classList.remove('scroll');
+            }
+        })
+    }
+
     document.addEventListener('click', documentActions)
     function documentActions(e) {
         const targetElement = e.target;
@@ -12,11 +26,11 @@ window.onload = function(){
 
         
         //Меню бургер
-/*         if (targetElement.closest('.menu__icon')) {
+        if (targetElement.closest('.menu__icon')) {
             targetElement.closest('.menu__icon').classList.toggle('active');
             document.querySelector('.menu__body').classList.toggle('open');
             document.body.classList.toggle('lock');
-        } */
+        }
         //Плавный скролл навигации
 /*         if (targetElement.closest('[data-goto]')){
             const link = targetElement.closest('[data-goto]');
