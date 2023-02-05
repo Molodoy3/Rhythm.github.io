@@ -1,6 +1,12 @@
 @charset "UTF-8";
 /*Подключение шрифтов /=============================================================================*/
-/* @import 'fonts.scss'; */
+@font-face {
+  font-family: CalSans;
+  font-display: swap;
+  src: url("../fonts/CalSans-SemiBold.woff2") format("woff2"), url("../fonts/CalSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
 /*=============================================================================================================*/
 /*Размер шрифта по умолчанию /=============================================================================*/
 /*=============================================================================================================*/
@@ -35,7 +41,103 @@
 
 /*=============================================================================================================*/
 /*Иконочный шрифт /=============================================================================*/
-/* @import 'icons'; */
+@font-face {
+  font-family: "icons";
+  src: url("../fonts/icons.ttf") format("woff"), url("../fonts/icons.woff2") format("woff2");
+  font-display: swap;
+  font-display: block;
+  font-style: normal;
+  font-weight: normal;
+}
+[class^=icon-]::before,
+[class*=icon-]::before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-asx-font-smoothing: grasyscale;
+}
+
+[class^=icon-]::before,
+[class*=icon-]::before {
+  display: block;
+}
+
+.icon-apple:before {
+  content: "\e900";
+}
+
+.icon-brand1:before {
+  content: "\e901";
+}
+
+.icon-brand2:before {
+  content: "\e902";
+}
+
+.icon-brand3:before {
+  content: "\e903";
+}
+
+.icon-brand4:before {
+  content: "\e904";
+}
+
+.icon-brand5:before {
+  content: "\e905";
+}
+
+.icon-brand6:before {
+  content: "\e906";
+}
+
+.icon-brand7:before {
+  content: "\e907";
+}
+
+.icon-brand8:before {
+  content: "\e908";
+}
+
+.icon-car:before {
+  content: "\e909";
+}
+
+.icon-email:before {
+  content: "\e90a";
+}
+
+.icon-facebook:before {
+  content: "\e90b";
+}
+
+.icon-inst:before {
+  content: "\e90c";
+}
+
+.icon-logo:before {
+  content: "\e90e";
+}
+
+.icon-payment:before {
+  content: "\e90f";
+}
+
+.icon-playMarket:before {
+  content: "\e910";
+}
+
+.icon-squares:before {
+  content: "\e911";
+}
+
+.icon-twitter:before {
+  content: "\e912";
+}
+
 /*=============================================================================================================*/
 /*Обнуление /=============================================================================*/
 * {
@@ -124,7 +226,7 @@ h1, h2, h3, h4, h5, h6 {
 /*Основные стили /=============================================================================*/
 body {
   font-size: 1rem;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .wrapper {
