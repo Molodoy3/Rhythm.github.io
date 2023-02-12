@@ -1,16 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
-    @@include('html/head.html', {
-        'title': 'Главная'
-    })
+@@include('html/head.html', {
+'title': 'Главная'
+})
+
 <body>
     <div class="wrapper">
         @@include('html/header.html')
         <div class="page">
-            
+            <section class="welcome">
+                <div class="welcome__text-block">
+                    <div class='welcome__container'>
+                        <div class="welcome__body">
+                            <h1 class="welcome__title title">
+                                Browse top quality <span>Guitars</span> online
+                            </h1>
+                            <div class="welcome__text">Explore 50k+ latest collections of branded guitars online with
+                                Rhythm.
+                            </div>
+                            <div class="welcome__buttons">
+                                <a href="" class="welcome__button">Get the App</a>
+                                <a href="" class="welcome__link icon-playMarket"></a>
+                                <a href="" class="welcome__link icon-apple"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="welcome__image">
+                    <div class="welcome__image-wrap">
+                        <picture>
+                            <source srcset='@img/welcome/mainImage.webp' type='image/webp'>
+                            <img src='@img/welcome/mainImage.png' alt='mainImage'>
+                        </picture>
+                    </div>
+                    <a href="" class="welcome__image-button icon-logo"></a>
+                </div>
+            </section>
+            <section class="store">
+                <div class='store__container'>
+                    <h2 class="store__title title">Check out the <span>Store</span></h2>
+                    <div class="store__block">
+                        <div class="store__top">
+                            <h3 class="store__label">NEW ON THE BOARD</h3>
+                            <a href="" class="store__all">view all</a>
+                        </div>
+                        <div class="store__row">
+                            <div class="store__item">
+                                <a href="" class="store__image">
+                                    <picture>
+                                        <source srcset='@img/store/01.webp' type='image/webp'>
+                                        <img src='@img/store/01.jpg' alt='product'>
+                                    </picture>
+                                </a>
+                                <div class="store__body">
+                                    <h5 class="store__product-title">The Essential Les Paul</h5>
+                                    <div class="store__price">$1,299.00</div>
+                                </div>
+                            </div>
+                            <div class="store__item">
+                                <a href="" class="store__image">
+                                    <picture>
+                                        <source srcset='@img/store/02.webp' type='image/webp'>
+                                        <img src='@img/store/02.jpg' alt='product'>
+                                    </picture>
+                                </a>
+                                <div class="store__body">
+                                    <h5 class="store__product-title">J-45 Standard</h5>
+                                    <div class="store__price">$1,699.00</div>
+                                </div>
+                            </div>
+                            <div class="store__item">
+                                <a href="" class="store__image">
+                                    <picture>
+                                        <source srcset='@img/store/03.webp' type='image/webp'>
+                                        <img src='@img/store/03.jpg' alt='product'>
+                                    </picture>
+                                </a>
+                                <div class="store__body">
+                                    <h5 class="store__product-title">Hummingbird Standard</h5>
+                                    <div class="store__price">$2,099.00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="store__block">
+                        <div class="store__top">
+                            <h3 class="store__label">TOP SELLING</h3>
+                            <a href="" class="store__all">view all</a>
+                        </div>
+                        <div class="store__row">
+                            <div class="store__item">
+                                <a href="" class="store__image">
+                                    <picture>
+                                        <source srcset='@img/store/04.webp' type='image/webp'>
+                                        <img src='@img/store/04.jpg' alt='product'>
+                                    </picture>
+                                </a>
+                                <div class="store__body">
+                                    <h5 class="store__product-title">Active Precision Bass® PH V</h5>
+                                    <div class="store__price">$4,199.00</div>
+                                </div>
+                            </div>
+                            <div class="store__item">
+                                <a href="" class="store__image">
+                                    <picture>
+                                        <source srcset='@img/store/05.webp' type='image/webp'>
+                                        <img src='@img/store/05.jpg' alt='product'>
+                                    </picture>
+                                </a>
+                                <div class="store__body">
+                                    <h5 class="store__product-title">Redondo Special</h5>
+                                    <div class="store__price">$2,800.00</div>
+                                </div>
+                            </div>
+                            <div class="store__item">
+                                <a href="" class="store__image">
+                                    <picture>
+                                        <source srcset='@img/store/06.webp' type='image/webp'>
+                                        <img src='@img/store/06.jpg' alt='product'>
+                                    </picture>
+                                </a>
+                                <div class="store__body">
+                                    <h5 class="store__product-title">Professional II Stratocaster®</h5>
+                                    <div class="store__price">$3,199.00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="categories">
+                <div class='categories__container'>
+                    <h2 class="categories__title title">Choose based on <span>Categories</span></h2>
+                    <div class="categories__row">
+                        <a href="" class="categories__item">
+                            <picture>
+                                <source srcset='@img/categories/01.webp' type='image/webp'>
+                                <img src='@img/categories/01.jpg' alt='category'>
+                            </picture>
+                            <h5 class="categories__label">Acoustic</h5>
+                        </a>
+                        <a href="" class="categories__item">
+                            <picture>
+                                <source srcset='@img/categories/02.webp' type='image/webp'>
+                                <img src='@img/categories/02.jpg' alt='category'>
+                            </picture>
+                            <h5 class="categories__label">Electric</h5>
+                        </a>
+                        <a href="" class="categories__item">
+                            <picture>
+                                <source srcset='@img/categories/03.webp' type='image/webp'>
+                                <img src='@img/categories/03.jpg' alt='category'>
+                            </picture>
+                            <h5 class="categories__label">Basses</h5>
+                        </a>
+                        <a href="" class="categories__item">
+                            <picture>
+                                <source srcset='@img/categories/04.webp' type='image/webp'>
+                                <img src='@img/categories/04.jpg' alt='category'>
+                            </picture>
+                            <h5 class="categories__label">Collections</h5>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section data-speed="0.03" class="brands">
+                <h3 class="brands__title title">Featuring the <span>Best Brands</span></h3>
+                <div class="brands__items">
+                    <a href="" class="brands__item">
+                        <img src='@img/icons/sprite.svg#brand1' alt='brand'>
+                    </a>
+                    <a href="" class="brands__item">
+                        <img src='@img/icons/sprite.svg#brand2' alt='brand'>
+                    </a>
+                    <a href="" class="brands__item">
+                        <img src='@img/icons/sprite.svg#brand3' alt='brand'>
+                    </a>
+                    <a href="" class="brands__item">
+                        <img src='@img/icons/sprite.svg#brand4' alt='brand'>
+                    </a>
+                    <a href="" class="brands__item">
+                        <img src='@img/icons/sprite.svg#brand5' alt='brand'>
+                    </a>
+                    <a href="" class="brands__item">
+                        <img src='@img/icons/sprite.svg#brand6' alt='brand'>
+                    </a>
+                    <a href="" class="brands__item">
+                        <img src='@img/icons/sprite.svg#brand7' alt='brand'>
+                    </a>
+                    <a href="" class="brands__item">
+                        <img src='@img/icons/sprite.svg#brand8' alt='brand'>
+                    </a>
+
+                </div>
+            </section>
+            <section class="advantages">
+                <div class='advantages__container'>
+                    <h3 class="advantages__title title">Why try <span>Rhythm?</span></h3>
+                    <div class="advantages__row">
+                        <div class="advantages__item">
+                            <div class="advantages__icon icon-squares"></div>
+                            <div class="advantages__label">Smooth Browsing</div>
+                            <div class="advantages__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                        </div>
+                        <div class="advantages__item">
+                            <div class="advantages__icon icon-car"></div>
+                            <div class="advantages__label">EASY Delivery</div>
+                            <div class="advantages__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                        </div>
+                        <div class="advantages__item">
+                            <div class="advantages__icon icon-payment"></div>
+                            <div class="advantages__label">SwiFT PAYMENTS</div>
+                            <div class="advantages__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="customers">
+                <div class='customers__container'>
+                    <h3 class="customers__title title">What our <span>customer’s</span> say</h3>
+                    <div class="customers__slider slider-customrers">
+                        <div class="slider-customrers__image-slider image-slider-customers">
+                            <div class="image-slider-customers__wrapper">
+                                <div class="image-slider-customers__slide">
+                                    <div class="slider-customrers__image">
+                                        <picture>
+                                            <source srcset='@img/customers/01.webp' type='image/webp'>
+                                            <img src='@img/customers/01.jpg' alt='man'>
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="image-slider-customers__slide">
+                                    <div class="slider-customrers__image">
+                                        <picture>
+                                            <source srcset='@img/customers/01.webp' type='image/webp'>
+                                            <img src='@img/customers/01.jpg' alt='man'>
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="image-slider-customers__slide">
+                                    <div class="slider-customrers__image">
+                                        <picture>
+                                            <source srcset='@img/customers/01.webp' type='image/webp'>
+                                            <img src='@img/customers/01.jpg' alt='man'>
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-customrers__content">
+                            <div class="text-slider-customers">
+                                <div class="text-slider-customers__wrapper">
+                                    <div class="text-slider-customers__slide">
+                                        “The Quality and Delivery is always on time, being a professional guitarist
+                                        myself I
+                                        love the customer service the brand provides, highly recommend Rhythm anytime.”
+                                    </div>
+                                    <div class="text-slider-customers__slide">
+                                        “The Quality and Delivery is always on time, being a professional guitarist
+                                        myself I
+                                    </div>
+                                    <div class="text-slider-customers__slide">
+                                        “The Quality and Delivery is always on time, being a professional guitarist
+                                        myself I
+                                        love the customer service the brand provides, highly recommend Rhythm anytime.”
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider-customrers__bottom bottom-customrers">
+                                <div class="slider-customrers__info-client info-client-customers">
+                                    <div class="info-client-customers__wrapper">
+                                        <div class="info-client-customers__body">
+                                            <div class="info-client-customers__name">Ryan Wels</div>
+                                            <div class="info-client-customers__status">PROFESSIONAL GUITARIST</div>
+                                        </div>
+                                        <div class="info-client-customers__body">
+                                            <div class="info-client-customers__name">Ryan Wels</div>
+                                            <div class="info-client-customers__status">PROFESSIONAL GUITARIST</div>
+                                        </div>
+                                        <div class="info-client-customers__body">
+                                            <div class="info-client-customers__name">Ryan Wels</div>
+                                            <div class="info-client-customers__status">PROFESSIONAL GUITARIST</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-customrers__navigation"></div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <section class="app">
+                <div class='app__container'>
+                    <div class="app__main">
+                        <h2 class="app__title title">Browse and buy your <span>favorite guitars</span> with Rhythm.</h2>
+                        <div class="app__links">
+                            <a href="" class="app__link app__link_google-play">
+                                <img src='@img/icons/sprite.svg#googlePlay' alt='google Play'>
+                            </a>
+                            <a href="" class="app__link app__link_app-store">
+                                <img src='@img/icons/sprite.svg#appStore' alt='app Store'>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="app__images">
+                        <div class="app__image app__image_1">
+                            <picture>
+                                <source srcset='@img/app/01.webp' type='image/webp'>
+                                <img src='@img/app/01.png' alt='app'>
+                            </picture>
+                        </div>
+                        <div class="app__image app__image_2">
+                            <picture>
+                                <source srcset='@img/app/02.webp' type='image/webp'>
+                                <img src='@img/app/02.png' alt='app'>
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
         @@include('html/footer.html')
     </div>
     <script src="js/app.min.js"></script>
 </body>
+
 </html>

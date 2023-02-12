@@ -1,18 +1,78 @@
-/* import * as functions from './modules/functions.js'; //импорт всех функций */
-/* import Swiper, { Navigation, Pagination } from 'swiper'; //импорт свайпера */
-/* import delegationClick from './modules/script.js';
-functions.isWebp(); //запуск функции определения поддержки webp */
+import Swiper, { Pagination, Controller, Thumbs} from 'swiper';
 
-window.onload = function(){
+window.onload = function () {
+
+    const imageSlider = document.querySelector('.image-slider-customers');
+    const textSlider = document.querySelector('.text-slider-customers');
+    const infoSlider = document.querySelector('.info-client-customers');
+
+    if(imageSlider && textSlider && infoSlider){
+        const textSwiper = new Swiper(textSlider, {
+            modules: [Controller],
+            wrapperClass: 'text-slider-customers__wrapper',
+            slideClass: 'text-slider-customers__slide',
+            direction: 'horizontal',
+            observer: true,
+            observeParents: true,
+            observeSlideChildren: true,
+            loop: true,
+            slidesPerView: 1,
+            speed: 800,
+            spaceBetween: 50,
+            allowTouchMove:false,
+            autoHeight: true,
+        });
+
+        const infoSwiper = new Swiper(infoSlider, {
+            modules: [Pagination, Controller, Thumbs],
+            wrapperClass: 'info-client-customers__wrapper',
+            slideClass: 'info-client-customers__body',
+            direction: 'horizontal',
+            observer: true,
+            observeParents: true,
+            observeSlideChildren: true,
+            loop: true,
+            slidesPerView: 1,
+            speed: 800,
+            spaceBetween: 50,
+            autoHeight: true,
+            pagination: {
+                el: '.slider-customrers__navigation',
+                clickable: true
+            },
+            thumbs: {
+                swiper: {
+                    el: imageSlider,
+                    modules: [Thumbs],
+                    el: '.image-slider-customers',
+                    wrapperClass: 'image-slider-customers__wrapper',
+                    slideClass: 'image-slider-customers__slide',
+                    direction: 'horizontal',
+                    observer: true,
+                    observeParents: true,
+                    observeSlideChildren: true,
+                    slidesPerView: 1,
+                    speed: 800,
+                    spaceBetween: 50,
+                    allowTouchMove:false,
+                    autoHeight: true,
+                }
+            }
+        });
+
+        infoSwiper.controller.control = textSwiper; 
+        textSwiper.controller.control = infoSwiper; 
+    }
+
     const header = document.querySelector('.header');
-    if(header){
-        if(window.scrollY){
+    if (header) {
+        if (window.scrollY) {
             header.classList.add('scroll');
         }
-        window.addEventListener('scroll', function(e){
-            if(window.scrollY){
+        window.addEventListener('scroll', function (e) {
+            if (window.scrollY) {
                 header.classList.add('scroll');
-            } else{
+            } else {
                 header.classList.remove('scroll');
             }
         })
@@ -24,7 +84,7 @@ window.onload = function(){
 
 
 
-        
+
         //Меню бургер
         if (targetElement.closest('.menu__icon')) {
             targetElement.closest('.menu__icon').classList.toggle('active');
@@ -32,21 +92,68 @@ window.onload = function(){
             document.body.classList.toggle('lock');
         }
         //Плавный скролл навигации
-/*         if (targetElement.closest('[data-goto]')){
-            const link = targetElement.closest('[data-goto]');
-            const goToBlock = document.querySelector(link.dataset.goto);
-            if(goToBlock){
-                let goToBlockValue = goToBlock.getBoundingClientRect().top + scrollY;
-                const header = document.querySelector('.header');
-                if(header){
-                    goToBlockValue -= header.offsetHeight;
-                }
-                window.scrollTo({
-                    top: goToBlockValue,
-                    behavior: "smooth"
-                });
-                e.preventDefault();
+        /*         if (targetElement.closest('[data-goto]')){
+                    const link = targetElement.closest('[data-goto]');
+                    const goToBlock = document.querySelector(link.dataset.goto);
+                    if(goToBlock){
+                        let goToBlockValue = goToBlock.getBoundingClientRect().top + scrollY;
+                        const header = document.querySelector('.header');
+                        if(header){
+                            goToBlockValue -= header.offsetHeight;
+                        }
+                        window.scrollTo({
+                            top: goToBlockValue,
+                            behavior: "smooth"
+                        });
+                        e.preventDefault();
+                    }
+                } */
+    }
+
+    const brands = document.querySelector('.brands');
+    if (brands && !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i
+        .test(navigator.userAgent))) {
+
+        const brandsRow = document.querySelector('.brands__items');
+        const brandsItems = document.querySelectorAll('.brands__item');
+
+        const speed = brands.dataset.speed;
+
+        let positionX = 0;
+        let coordXprocent = 0;
+
+        function setMouseGalleryStyle() {
+            let brandsItemsWidth = 0;
+            brandsItems.forEach(element => {
+                brandsItemsWidth += element.offsetWidth;
+            });
+
+            const brandsDifferent = brandsItemsWidth - brands.offsetWidth;
+            const distX = Math.floor(coordXprocent - positionX);
+
+            positionX = positionX + (distX * speed);
+            let position = brandsDifferent / 200 * positionX;
+
+            brandsRow.style.cssText = `transform: translate3d(${position}px,0,0);`;
+            /*  console.log(coordXprocent); */
+
+            if (Math.abs(distX) > 0) {
+                requestAnimationFrame(setMouseGalleryStyle);
+            } else {
+                brands.classList.remove('init');
             }
-        } */
+        }
+        brands.addEventListener("mousemove", function (e) {
+            const brandsWidth = brands.offsetWidth;
+
+            const coordX = e.pageX - brandsWidth / 2;
+            coordXprocent = coordX / brandsWidth * 200;
+            if (!brands.classList.contains('init')) {
+                requestAnimationFrame(setMouseGalleryStyle);
+                brands.classList.add('init');
+            }
+        });
+    } else {
+        brands.classList.add('mobile');
     }
 }

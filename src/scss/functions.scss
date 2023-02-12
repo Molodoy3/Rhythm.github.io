@@ -14,7 +14,7 @@
 @mixin adaptiv-value($property, $startSize, $minSize, $type) {
     $addSize: $startSize - $minSize;
     @if $type==1 {
-        #{$property}: $startSize / 16 + rem;
+        #{$property}: math.div($startSize, 16) + rem;
         //если меньше контейнера
         @media (max-width: #{$maxWidthContainer + px}) {
             #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
