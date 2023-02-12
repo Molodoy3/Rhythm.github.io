@@ -1231,3 +1231,106 @@ body.lock {
 }
 
 /*=============================================================================================================*/
+.footer {
+  color: #6A6A6A;
+  background: #EEEEEE;
+  padding-top: 5rem;
+  padding-bottom: 2.6875rem;
+}
+@media (max-width: 1440px) {
+  .footer {
+    padding-top: calc(40px + 40 * ((100vw - 320px) / 1120));
+  }
+}
+@media (max-width: 1440px) {
+  .footer {
+    padding-bottom: calc(28px + 15 * ((100vw - 320px) / 1120));
+  }
+}
+.footer__menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  column-gap: 7.5rem;
+  row-gap: 1.5625rem;
+  padding-bottom: 5rem;
+}
+@media (max-width: 1440px) {
+  .footer__menu {
+    column-gap: calc(25px + 95 * ((100vw - 320px) / 1120));
+  }
+}
+@media (max-width: 1440px) {
+  .footer__menu {
+    padding-bottom: calc(30px + 50 * ((100vw - 320px) / 1120));
+  }
+}
+.footer__logo {
+  margin-bottom: 1.1666666667em;
+  display: inline-flex;
+}
+.footer__column_big {
+  grid-column: 1/3;
+}
+.footer__list > li {
+  margin-bottom: 1em;
+  color: inherit;
+  line-height: 150%;
+}
+.footer__list > li img {
+  width: 35px;
+  margin-left: -10px;
+  margin-right: 10px;
+}
+.footer__link {
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+}
+@media (any-hover: hover) {
+  .footer__link {
+    transition: color 0.3s ease 0s;
+  }
+  .footer__link:hover {
+    color: #FF6428;
+  }
+}
+.footer__link::before {
+  margin-right: 1.25em;
+}
+.footer__label {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 150%;
+  color: #121212;
+  text-transform: uppercase;
+  margin-bottom: 1.1111111111em;
+}
+.footer__list-social {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2.6875rem;
+  row-gap: 1.5625rem;
+}
+@media (max-width: 1440px) {
+  .footer__list-social {
+    column-gap: calc(25px + 18 * ((100vw - 320px) / 1120));
+  }
+}
+.footer__item-social {
+  font-size: 18px;
+}
+.footer__link-social {
+  color: inherit;
+}
+@media (any-hover: hover) {
+  .footer__link-social {
+    transition: color 0.3s ease 0s;
+  }
+  .footer__link-social:hover {
+    color: #FF6428;
+  }
+}
+.footer__copy {
+  text-align: center;
+  line-height: 160%;
+}

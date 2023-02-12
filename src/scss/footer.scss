@@ -1,0 +1,90 @@
+.footer {
+    color: #6A6A6A;
+    background: #EEEEEE;
+    @include adaptiv-value('padding-top', 80, 40, 1);
+    @include adaptiv-value('padding-bottom', 43, 28, 1);
+    &__container {}
+
+    &__menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        @include adaptiv-value('column-gap', 120, 25, 1);
+        row-gap: rem(25);
+        @include adaptiv-value('padding-bottom', 80, 30, 1);
+    }
+    &__logo{
+        margin-bottom: em(28, 24);
+        display: inline-flex;
+    }
+    &__column {
+
+        &_big {
+            grid-column: 1 / 3;
+        }
+    }
+
+    &__list {
+        >li{
+            margin-bottom: em(16, 16);
+            color: inherit;
+            line-height: perc(24, 16);
+            img{
+                width: 35px;
+                margin-left: -10px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    &__link {
+        color: inherit;
+        display: inline-flex;
+        align-items: center;
+        @media (any-hover: hover) {
+            transition: color 0.3s ease 0s;
+            &:hover{
+                color: $Orange;
+            }
+        }
+        &::before{
+            margin-right: em(20, 16);
+        }
+
+    }
+
+    &__label {
+        font-weight: 600;
+        font-size: rem(18);
+        line-height: perc(27, 18);
+        color: #121212;
+        text-transform: uppercase;
+        margin-bottom: em(20, 18);
+    }
+
+    &__list-social {
+        display: flex;
+        flex-wrap: wrap;
+        @include adaptiv-value('column-gap', 43, 25, 1);
+        row-gap: rem(25);
+
+    }
+
+    &__item-social {
+        font-size: 18px;
+    }
+
+    &__link-social {
+        color: inherit;
+        @media (any-hover: hover) {
+            transition: color 0.3s ease 0s;
+            &:hover{
+                color: $Orange;
+            }
+        }
+    }
+
+    &__copy {
+        text-align: center;
+        line-height: 160%;
+    }
+}
