@@ -245,10 +245,44 @@ body.lock {
   line-height: 120.4545454545%;
   font-family: CalSans;
   text-align: center;
+  opacity: 0;
+  -webkit-transform: translateY(70px);
+      -ms-transform: translateY(70px);
+          transform: translateY(70px);
+}
+
+.title.active {
+  -webkit-transition: opacity 0.6s ease 0s, -webkit-transform 0.6s ease 0s;
+  transition: opacity 0.6s ease 0s, -webkit-transform 0.6s ease 0s;
+  -o-transition: transform 0.6s ease 0s, opacity 0.6s ease 0s;
+  transition: transform 0.6s ease 0s, opacity 0.6s ease 0s;
+  transition: transform 0.6s ease 0s, opacity 0.6s ease 0s, -webkit-transform 0.6s ease 0s;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+
+.title_left {
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+  text-align: left;
+}
+
+.title_left.active {
+  -webkit-transition: opacity 0.6s ease 0s, -webkit-transform 0.6s ease 0s;
+  transition: opacity 0.6s ease 0s, -webkit-transform 0.6s ease 0s;
+  -o-transition: transform 0.6s ease 0s, opacity 0.6s ease 0s;
+  transition: transform 0.6s ease 0s, opacity 0.6s ease 0s;
+  transition: transform 0.6s ease 0s, opacity 0.6s ease 0s, -webkit-transform 0.6s ease 0s;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .title span {
-  color: #FF6428;
+  color: #ff6428;
 }
 
 /*=============================================================================================================*/
@@ -271,7 +305,7 @@ body.lock {
 }
 
 .header.scroll .header__container {
-  min-height: 60px;
+  min-height: 80px;
 }
 
 .header__container {
@@ -342,7 +376,7 @@ body.lock {
 
 .logo::before {
   margin-right: 0.4166666667em;
-  color: #FF6428;
+  color: #ff6428;
 }
 
 .menu__icon {
@@ -364,7 +398,7 @@ body.lock {
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: #FF6428;
+  background-color: #ff6428;
   right: 0;
   -webkit-transition: all 0.5s ease 0s;
   -o-transition: all 0.5s ease 0s;
@@ -435,6 +469,51 @@ body.lock {
 
 .welcome__container {
   width: 100%;
+  overflow: hidden;
+}
+
+.welcome__body.active .welcome__text {
+  -webkit-transition: opacity 0.6s ease 0.2s, -webkit-transform 0.6s ease 0.2s;
+  transition: opacity 0.6s ease 0.2s, -webkit-transform 0.6s ease 0.2s;
+  -o-transition: transform 0.6s ease 0.2s, opacity 0.6s ease 0.2s;
+  transition: transform 0.6s ease 0.2s, opacity 0.6s ease 0.2s;
+  transition: transform 0.6s ease 0.2s, opacity 0.6s ease 0.2s, -webkit-transform 0.6s ease 0.2s;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+
+.welcome__body.active .welcome__button {
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: opacity 0.6s ease 0.4s, -webkit-transform 0.6s ease 0.4s;
+  transition: opacity 0.6s ease 0.4s, -webkit-transform 0.6s ease 0.4s;
+  -o-transition: transform 0.6s ease 0.4s, opacity 0.6s ease 0.4s;
+  transition: transform 0.6s ease 0.4s, opacity 0.6s ease 0.4s;
+  transition: transform 0.6s ease 0.4s, opacity 0.6s ease 0.4s, -webkit-transform 0.6s ease 0.4s;
+}
+
+.welcome__body.active .welcome__link {
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: opacity 0.6s ease 0.5s, -webkit-transform 0.6s ease 0.5s;
+  transition: opacity 0.6s ease 0.5s, -webkit-transform 0.6s ease 0.5s;
+  -o-transition: transform 0.6s ease 0.5s, opacity 0.6s ease 0.5s;
+  transition: transform 0.6s ease 0.5s, opacity 0.6s ease 0.5s;
+  transition: transform 0.6s ease 0.5s, opacity 0.6s ease 0.5s, -webkit-transform 0.6s ease 0.5s;
+}
+
+.welcome__body.active .welcome__link:last-child {
+  -webkit-transition: opacity 0.6s ease 0.6s, -webkit-transform 0.6s ease 0.6s;
+  transition: opacity 0.6s ease 0.6s, -webkit-transform 0.6s ease 0.6s;
+  -o-transition: transform 0.6s ease 0.6s, opacity 0.6s ease 0.6s;
+  transition: transform 0.6s ease 0.6s, opacity 0.6s ease 0.6s;
+  transition: transform 0.6s ease 0.6s, opacity 0.6s ease 0.6s, -webkit-transform 0.6s ease 0.6s;
 }
 
 .welcome__text-block {
@@ -451,6 +530,10 @@ body.lock {
   font-weight: 500;
   line-height: 150%;
   color: #666666;
+  opacity: 0;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
   margin-bottom: 2.0625em;
 }
 
@@ -466,9 +549,13 @@ body.lock {
 }
 
 .welcome__button {
-  background: #FF6428;
+  background: #ff6428;
   border-radius: 40px;
   color: #fff;
+  opacity: 0;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
   line-height: 150%;
   font-weight: 600;
   margin-right: 2.5rem;
@@ -481,7 +568,11 @@ body.lock {
 }
 
 .welcome__link {
-  color: #B2B2B2;
+  opacity: 0;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  color: #b2b2b2;
   font-size: 30px;
 }
 
@@ -511,6 +602,38 @@ body.lock {
   position: relative;
 }
 
+.welcome__image img {
+  opacity: 0;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  border-radius: 0px 0px 25% 55%;
+}
+
+.welcome__image.active img {
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: opacity 0.6s ease 0s, -webkit-transform 0.6s ease 0s;
+  transition: opacity 0.6s ease 0s, -webkit-transform 0.6s ease 0s;
+  -o-transition: opacity 0.6s ease 0s, transform 0.6s ease 0s;
+  transition: opacity 0.6s ease 0s, transform 0.6s ease 0s;
+  transition: opacity 0.6s ease 0s, transform 0.6s ease 0s, -webkit-transform 0.6s ease 0s;
+}
+
+.welcome__image.active .welcome__image-button {
+  opacity: 1;
+  -webkit-transform: scale(1) translate(-50%, 50%);
+      -ms-transform: scale(1) translate(-50%, 50%);
+          transform: scale(1) translate(-50%, 50%);
+  -webkit-transition: opacity 0.6s ease 0.3s, -webkit-transform 0.6s ease 0.3s;
+  transition: opacity 0.6s ease 0.3s, -webkit-transform 0.6s ease 0.3s;
+  -o-transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s, -webkit-transform 0.6s ease 0.3s;
+}
+
 .welcome__image-button {
   width: 5rem;
   height: 5rem;
@@ -524,15 +647,16 @@ body.lock {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #FF6428;
+  color: #ff6428;
+  opacity: 0;
   background: #fff;
   position: absolute;
   bottom: 0;
   left: 50%;
   font-size: 1.375rem;
-  -webkit-transform: translate(-50%, 50%);
-      -ms-transform: translate(-50%, 50%);
-          transform: translate(-50%, 50%);
+  -webkit-transform: translate(-50%, 50%) scale(0);
+      -ms-transform: translate(-50%, 50%) scale(0);
+          transform: translate(-50%, 50%) scale(0);
 }
 
 /*=============================================================================================================*/
@@ -874,7 +998,7 @@ body.lock {
 }
 
 .slider-customrers__navigation span {
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   border-radius: 20px;
   width: 10px;
   height: 16px;
@@ -885,7 +1009,7 @@ body.lock {
 }
 
 .slider-customrers__navigation .swiper-pagination-bullet-active {
-  background: #FF6428;
+  background: #ff6428;
   height: 24px;
   width: 12px;
   -webkit-transform: rotate(90deg);
@@ -930,7 +1054,7 @@ body.lock {
           transform: rotate(-7.72deg);
   width: 69.7788697789%;
   height: 63.3906633907%;
-  background: #FF6428;
+  background: #ff6428;
   top: 0;
   left: 0;
   position: absolute;
@@ -1005,6 +1129,7 @@ body.lock {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: hidden;
 }
 
 .app__title {
@@ -1056,7 +1181,7 @@ body.lock {
           transform: translate(-50%, -50%);
   width: 100%;
   height: 66.4165103189%;
-  background: #FF6428;
+  background: #ff6428;
   border-radius: 50%;
 }
 
@@ -1492,6 +1617,10 @@ body.lock {
 }
 
 @media (max-width: 479.98px) {
+  .header.scroll .header__container {
+    min-height: 60px;
+  }
+
   .header__container {
     min-height: 60px;
   }
@@ -1501,7 +1630,7 @@ body.lock {
     width: 100%;
     height: 100%;
     background: #fff;
-    padding: 70px 0px 30px 0px;
+    padding-top: 70px;
     top: 0;
     left: -100%;
     overflow: auto;
@@ -1571,7 +1700,7 @@ body.lock {
   }
 
   .menu__link:hover {
-    color: #FF6428;
+    color: #ff6428;
   }
 
   .welcome__button {
@@ -1595,7 +1724,7 @@ body.lock {
   }
 
   .welcome__link:hover {
-    color: #FF6428;
+    color: #ff6428;
   }
 
   .welcome__image-button {
@@ -1606,7 +1735,7 @@ body.lock {
 
   .welcome__image-button:hover {
     color: #fff;
-    background: #FF6428;
+    background: #ff6428;
   }
 
   .store__all {
@@ -1616,7 +1745,7 @@ body.lock {
   }
 
   .store__all:hover {
-    color: #FF6428;
+    color: #ff6428;
   }
 
   .store__image:hover img {
@@ -1722,7 +1851,7 @@ body.lock {
   }
 
   .footer__link:hover {
-    color: #FF6428;
+    color: #ff6428;
   }
 
   .footer__link-social {
@@ -1732,6 +1861,6 @@ body.lock {
   }
 
   .footer__link-social:hover {
-    color: #FF6428;
+    color: #ff6428;
   }
 }

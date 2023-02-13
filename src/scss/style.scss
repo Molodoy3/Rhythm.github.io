@@ -1,6 +1,6 @@
-@use 'sass:math';
+@use "sass:math";
 /*Подключение шрифтов /=============================================================================*/
-@import 'fonts.scss';
+@import "fonts.scss";
 /*=============================================================================================================*/
 /*Размер шрифта по умолчанию /=============================================================================*/
 $mainFontSize: 16; //?Заполнить
@@ -8,7 +8,7 @@ $mainFontSize: 16; //?Заполнить
 /*Контейнер и сетка /=============================================================================*/
 $mw: 1220px; //?Заполнить
 $minwidth: 320px;
-$md1: $mw+12px;
+$md1: $mw + 12px;
 $md2: 992.98px;
 $md3: 767.98px;
 $md4: 479.98px;
@@ -22,27 +22,27 @@ $md4: 479.98px;
 
 /*=============================================================================================================*/
 /*Иконочный шрифт /=============================================================================*/
-@import 'icons';
+@import "icons";
 /*=============================================================================================================*/
 /*Обнуление /=============================================================================*/
-@import 'null';
+@import "null";
 /*=============================================================================================================*/
 /*Переменные для адаптивного свойства /=============================================================================*/
 $maxWidth: 1920; //макс ширина
 $maxWidthContainer: 1440; //ширина макета //?Заполнить
 /*=============================================================================================================*/
 /*Основные цвета /=============================================================================*/
-$Orange: #FF6428;
+$Orange: #ff6428;
 $Grey: #666666;
 /*=============================================================================================================*/
 /*Подключение функций, миксинов /=============================================================================*/
-@import 'functions';
+@import "functions";
 
 /*=============================================================================================================*/
 /*Основные стили /=============================================================================*/
 body {
     font-size: rem($mainFontSize);
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 
     &.lock {
         overflow: hidden;
@@ -65,12 +65,26 @@ body {
 /*Общие блоки /=============================================================================*/
 .title {
     color: #121212;
-    @include adaptiv-value('font-size', 44, 30, 1);
+    @include adaptiv-value("font-size", 44, 30, 1);
     font-weight: 600;
     line-height: perc(53, 44);
     font-family: CalSans;
     text-align: center;
-
+    opacity: 0;
+    transform: translateY(70px);
+    &.active {
+        transition: transform 0.6s ease 0s, opacity 0.6s ease 0s;
+        transform: translateY(0);
+        opacity: 1;
+    }
+    &_left {
+        transform: translateX(-100%);
+        text-align: left;
+        &.active {
+            transition: transform 0.6s ease 0s, opacity 0.6s ease 0s;
+            transform: translateX(0);
+        }
+    }
     span {
         color: $Orange;
     }
@@ -81,7 +95,7 @@ body {
 
 /*=============================================================================================================*/
 .welcome {
-    @include adaptiv-value('padding-bottom', 120, 65, 1);
+    @include adaptiv-value("padding-bottom", 120, 65, 1);
 
     @media (min-width: $md2) {
         display: flex;
@@ -89,16 +103,37 @@ body {
 
     &__container {
         width: 100%;
+        overflow: hidden;
     }
 
     &__body {
         @media (min-width: $md2) {
             max-width: 469px;
         }
+        &.active {
+            .welcome__text {
+                transition: transform 0.6s ease 0.2s, opacity 0.6s ease 0.2s;
+                transform: translateX(0);
+                opacity: 1;
+            }
+            .welcome__button{
+                opacity: 1;
+                transform: scale(1);
+                transition: transform 0.6s ease 0.4s, opacity 0.6s ease 0.4s;
+            }
+            .welcome__link{
+                opacity: 1;
+                transform: scale(1);
+                transition: transform 0.6s ease 0.5s, opacity 0.6s ease 0.5s;
+                &:last-child{
+                    transition: transform 0.6s ease 0.6s, opacity 0.6s ease 0.6s;
+                }
+            }
+        }
     }
 
     &__text-block {
-        @include adaptiv-value('padding-top', 200, 70, 1);
+        @include adaptiv-value("padding-top", 200, 70, 1);
 
         @media (max-width: $md2) {
             margin-bottom: 25px;
@@ -108,12 +143,12 @@ body {
             display: flex;
             flex: 0 0 100%;
             align-items: flex-end;
-            @include adaptiv-value('padding-bottom', 70, 35, 1);
+            @include adaptiv-value("padding-bottom", 70, 35, 1);
         }
     }
 
     &__title {
-        @include adaptiv-value('font-size', 56, 26, 1);
+        @include adaptiv-value("font-size", 56, 26, 1);
         margin-bottom: em(16, 56);
         text-align: left;
     }
@@ -122,6 +157,8 @@ body {
         font-weight: 500;
         line-height: perc(24, 16);
         color: $Grey;
+        opacity: 0;
+        transform: translateX(-100%);
         margin-bottom: em(33, 16);
     }
 
@@ -135,14 +172,16 @@ body {
         background: $Orange;
         border-radius: 40px;
         color: #fff;
+        opacity: 0;
+        transform: scale(0);
         line-height: perc(24, 16);
         font-weight: 600;
-        @include adaptiv-value('margin-right', 40, 15, 1);
+        @include adaptiv-value("margin-right", 40, 15, 1);
         text-align: center;
-        @include adaptiv-value('padding-top', 18, 10, 1);
-        @include adaptiv-value('padding-bottom', 18, 10, 1);
-        @include adaptiv-value('padding-left', 48, 25, 1);
-        @include adaptiv-value('padding-right', 48, 25, 1);
+        @include adaptiv-value("padding-top", 18, 10, 1);
+        @include adaptiv-value("padding-bottom", 18, 10, 1);
+        @include adaptiv-value("padding-left", 48, 25, 1);
+        @include adaptiv-value("padding-right", 48, 25, 1);
         display: inline-block;
 
         @media (any-hover: hover) {
@@ -159,8 +198,9 @@ body {
         &:not(:last-child) {
             margin-right: 18px;
         }
-
-        color: #B2B2B2;
+        opacity: 0;
+        transform: scale(0);
+        color: #b2b2b2;
         font-size: 30px;
 
         @media (any-hover: hover) {
@@ -176,7 +216,6 @@ body {
         overflow: hidden;
         width: 100%;
         height: 100%;
-
         @media (min-width: $md2) {
             border-radius: 0px 0px 25% 55%;
         }
@@ -202,27 +241,43 @@ body {
         @media (min-width: $md2) {
             flex: 0 0 calc((100vw - 270px) * 0.5 + 20px);
             transform: translateX(-100%);
-
+        }
+        position: relative;
+        img {
+            opacity: 0;
+            transform: scale(0);
+            border-radius: 0px 0px 25% 55%;
         }
 
-        position: relative;
+        &.active {
+            img {
+                opacity: 1;
+                transform: scale(1);
+                transition: opacity 0.6s ease 0s, transform 0.6s ease 0s;
+            }
+            .welcome__image-button{
+                opacity: 1;
+                transform: scale(1) translate(-50%, 50%);
+                transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+            }
+        }
     }
 
     &__image-button {
-        @include adaptiv-value('width', 80, 55, 1);
-        @include adaptiv-value('height', 80, 55, 1);
+        @include adaptiv-value("width", 80, 55, 1);
+        @include adaptiv-value("height", 80, 55, 1);
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         color: $Orange;
+        opacity: 0;
         background: #fff;
         position: absolute;
         bottom: 0;
         left: 50%;
-        @include adaptiv-value('font-size', 22, 16, 1);
-        transform: translate(-50%, 50%);
-
+        @include adaptiv-value("font-size", 22, 16, 1);
+        transform: translate(-50%, 50%) scale(0);
         @media (any-hover: hover) {
             transition: all 0.3s ease 0s;
 
@@ -236,9 +291,10 @@ body {
 
 /*=============================================================================================================*/
 .store {
-    @include adaptiv-value('margin-bottom', 180, 55, 1);
+    @include adaptiv-value("margin-bottom", 180, 55, 1);
 
-    &__container {}
+    &__container {
+    }
 
     &__title {
         margin-bottom: em(46, 44);
@@ -246,7 +302,7 @@ body {
 
     &__block {
         &:not(:last-child) {
-            @include adaptiv-value('margin-bottom', 96, 30, 1);
+            @include adaptiv-value("margin-bottom", 96, 30, 1);
         }
     }
 
@@ -256,7 +312,7 @@ body {
         justify-content: space-between;
         column-gap: 30px;
         row-gap: 5px;
-        @include adaptiv-value('margin-bottom', 38, 20, 1);
+        @include adaptiv-value("margin-bottom", 38, 20, 1);
         align-items: center;
     }
 
@@ -288,7 +344,7 @@ body {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
         justify-content: space-around;
-        @include adaptiv-value('column-gap', 54, 20, 1);
+        @include adaptiv-value("column-gap", 54, 20, 1);
         row-gap: 20px;
 
         @media (min-width: 1210px) {
@@ -296,14 +352,15 @@ body {
         }
     }
 
-    &__item {}
+    &__item {
+    }
 
     &__image {
         display: block;
         position: relative;
         padding-bottom: perc(190, 364);
         overflow: hidden;
-        @include adaptiv-value('margin-bottom', 40, 15, 1);
+        @include adaptiv-value("margin-bottom", 40, 15, 1);
 
         @media (any-hover: hover) {
             &:hover {
@@ -324,7 +381,8 @@ body {
         }
     }
 
-    &__body {}
+    &__body {
+    }
 
     &__product-title {
         color: #121212;
@@ -332,7 +390,6 @@ body {
         font-weight: 500;
         margin-bottom: em(7, 16);
         line-height: perc(21, 14);
-
     }
 
     &__price {
@@ -342,9 +399,10 @@ body {
 
 /*=============================================================================================================*/
 .categories {
-    @include adaptiv-value('margin-bottom', 220, 50, 1);
+    @include adaptiv-value("margin-bottom", 220, 50, 1);
 
-    &__container {}
+    &__container {
+    }
 
     &__title {
         margin-bottom: em(60, 44);
@@ -353,7 +411,7 @@ body {
     &__row {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        @include adaptiv-value('column-gap', 69, 20, 1);
+        @include adaptiv-value("column-gap", 69, 20, 1);
         justify-content: space-between;
         row-gap: 20px;
     }
@@ -378,7 +436,6 @@ body {
             }
         }
     }
-
 
     img {
         object-fit: cover;
@@ -410,7 +467,7 @@ body {
 
 /*=============================================================================================================*/
 .brands {
-    @include adaptiv-value('margin-bottom', 202, 40, 1);
+    @include adaptiv-value("margin-bottom", 202, 40, 1);
 
     &.mobile {
         .brands__items {
@@ -424,11 +481,10 @@ body {
 
     &__items {
         display: flex;
-        @include adaptiv-value('column-gap', 50, 25, 1);
+        @include adaptiv-value("column-gap", 50, 25, 1);
         row-gap: 20px;
         justify-content: center;
         padding: 0px 30px;
-
     }
 
     &__item {
@@ -464,9 +520,9 @@ body {
 
 /*=============================================================================================================*/
 .advantages {
-    @include adaptiv-value('padding-top', 90, 40, 1);
-    @include adaptiv-value('padding-bottom', 90, 40, 1);
-    @include adaptiv-value('margin-bottom', 240, 55, 1);
+    @include adaptiv-value("padding-top", 90, 40, 1);
+    @include adaptiv-value("padding-bottom", 90, 40, 1);
+    @include adaptiv-value("margin-bottom", 240, 55, 1);
     color: #fff;
     background: #121212;
 
@@ -484,7 +540,7 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(140px, 240px));
         justify-content: space-around;
         row-gap: 30px;
-        @include adaptiv-value('column-gap', 100, 30, 1);
+        @include adaptiv-value("column-gap", 100, 30, 1);
 
         @media (min-width: $md2) {
             justify-content: space-between;
@@ -499,15 +555,15 @@ body {
     }
 
     &__icon {
-        @include adaptiv-value('width', 72, 55, 1);
-        @include adaptiv-value('height', 72, 55, 1);
-        @include adaptiv-value('font-size', 32, 25, 1);
+        @include adaptiv-value("width", 72, 55, 1);
+        @include adaptiv-value("height", 72, 55, 1);
+        @include adaptiv-value("font-size", 32, 25, 1);
         display: flex;
         justify-content: center;
         align-items: center;
         background: #262626;
         border-radius: 20px;
-        @include adaptiv-value('margin-bottom', 40, 32, 1);
+        @include adaptiv-value("margin-bottom", 40, 32, 1);
     }
 
     &__label {
@@ -529,7 +585,7 @@ body {
 
 /*=============================================================================================================*/
 .customers {
-    @include adaptiv-value('margin-bottom', 270, 60, 1);
+    @include adaptiv-value("margin-bottom", 270, 60, 1);
 
     &__container {
         max-width: 1140px;
@@ -539,7 +595,8 @@ body {
         margin-bottom: em(80, 44);
     }
 
-    &__slider {}
+    &__slider {
+    }
 }
 
 .slider-customrers {
@@ -549,10 +606,10 @@ body {
     @media (min-width: 600px) {
         display: flex;
         align-items: center;
-        @include adaptiv-value('column-gap', 146, 15, 1);
+        @include adaptiv-value("column-gap", 146, 15, 1);
     }
     min-width: 0;
-    &__image-slider{
+    &__image-slider {
         min-width: 0;
         overflow: hidden;
         @media (min-width: 600px) {
@@ -598,17 +655,17 @@ body {
 
     &__content {
         min-width: 0;
-        @media (min-width: 600px){
+        @media (min-width: 600px) {
             flex: 0 1 perc(790, 1140);
             max-width: 100%;
         }
     }
 
     &__text {
-
     }
 
-    &__info-client {}
+    &__info-client {
+    }
 
     &__navigation {
         flex: 0 1 250px;
@@ -617,7 +674,7 @@ body {
         flex-wrap: wrap;
         align-items: center;
         span {
-            background-color: #C4C4C4;
+            background-color: #c4c4c4;
             border-radius: 20px;
             width: 10px;
             height: 16px;
@@ -635,10 +692,9 @@ body {
 }
 
 .info-client-customers {
-
     &__name {
         font-weight: 600;
-        @include adaptiv-value('font-size', 24, 18, 1);
+        @include adaptiv-value("font-size", 24, 18, 1);
         line-height: 160%;
         margin-bottom: em(8, 24);
     }
@@ -653,7 +709,6 @@ body {
 }
 
 .image-slider-customers {
-
     &__wrapper {
         display: flex;
     }
@@ -676,7 +731,7 @@ body {
         }
 
         &::after {
-            content: '';
+            content: "";
             border-radius: 40px 40px 400px 400px;
             transform: rotate(-7.72deg);
             width: perc(284, 407);
@@ -704,7 +759,7 @@ body {
 
     &__slide {
         flex-shrink: 0;
-        @include adaptiv-value('font-size', 24, 18, 1);
+        @include adaptiv-value("font-size", 24, 18, 1);
         color: #868686;
         line-height: 160%;
     }
@@ -719,9 +774,8 @@ body {
     &__body {
         flex-shrink: 0;
     }
-
 }
-.bottom-customrers{
+.bottom-customrers {
     min-width: 0;
     display: flex;
     align-items: center;
@@ -731,16 +785,18 @@ body {
 }
 /*=============================================================================================================*/
 .app {
-    @include adaptiv-value('margin-bottom', 120, 35, 1);
+    @include adaptiv-value("margin-bottom", 120, 35, 1);
     &__container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        @include adaptiv-value('column-gap', 120, 30, 1);
+        @include adaptiv-value("column-gap", 120, 30, 1);
         row-gap: rem(30);
         align-items: center;
+        overflow: hidden;
     }
 
-    &__main {}
+    &__main {
+    }
 
     &__title {
         text-align: left;
@@ -757,15 +813,15 @@ body {
     &__link {
         @media (any-hover: hover) {
             transition: transform 0.3s ease 0s;
-            &:hover{
+            &:hover {
                 transform: scale(1.1);
             }
         }
-        &_app-store{
-            @include adaptiv-value('width', 171, 130, 1);
+        &_app-store {
+            @include adaptiv-value("width", 171, 130, 1);
         }
-        &_google-play{
-            @include adaptiv-value('width', 191, 140, 1);
+        &_google-play {
+            @include adaptiv-value("width", 191, 140, 1);
         }
     }
 
@@ -775,8 +831,8 @@ body {
         padding-left: perc(49, 568);
         padding-right: perc(59, 568);
         position: relative;
-        &::after{
-            content:'';
+        &::after {
+            content: "";
             position: absolute;
             top: 50%;
             left: 50%;
@@ -793,7 +849,7 @@ body {
         position: relative;
         z-index: 2;
 
-        img{
+        img {
             width: 100%;
         }
         &_1 {

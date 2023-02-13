@@ -1,4 +1,4 @@
-import Swiper, { Pagination, Controller, Thumbs} from 'swiper';
+import Swiper, { Pagination, Controller, Thumbs } from 'swiper';
 
 window.onload = function () {
 
@@ -6,7 +6,7 @@ window.onload = function () {
     const textSlider = document.querySelector('.text-slider-customers');
     const infoSlider = document.querySelector('.info-client-customers');
 
-    if(imageSlider && textSlider && infoSlider){
+    if (imageSlider && textSlider && infoSlider) {
         const textSwiper = new Swiper(textSlider, {
             modules: [Controller],
             wrapperClass: 'text-slider-customers__wrapper',
@@ -19,7 +19,7 @@ window.onload = function () {
             slidesPerView: 1,
             speed: 800,
             spaceBetween: 50,
-            allowTouchMove:false,
+            allowTouchMove: false,
             autoHeight: true,
         });
 
@@ -54,14 +54,14 @@ window.onload = function () {
                     slidesPerView: 1,
                     speed: 800,
                     spaceBetween: 50,
-                    allowTouchMove:false,
+                    allowTouchMove: false,
                     autoHeight: true,
                 }
             }
         });
 
-        infoSwiper.controller.control = textSwiper; 
-        textSwiper.controller.control = infoSwiper; 
+        infoSwiper.controller.control = textSwiper;
+        textSwiper.controller.control = infoSwiper;
     }
 
     const header = document.querySelector('.header');
@@ -81,10 +81,6 @@ window.onload = function () {
     document.addEventListener('click', documentActions)
     function documentActions(e) {
         const targetElement = e.target;
-
-
-
-
         //Меню бургер
         if (targetElement.closest('.menu__icon')) {
             targetElement.closest('.menu__icon').classList.toggle('active');
@@ -92,22 +88,22 @@ window.onload = function () {
             document.body.classList.toggle('lock');
         }
         //Плавный скролл навигации
-        /*         if (targetElement.closest('[data-goto]')){
-                    const link = targetElement.closest('[data-goto]');
-                    const goToBlock = document.querySelector(link.dataset.goto);
-                    if(goToBlock){
-                        let goToBlockValue = goToBlock.getBoundingClientRect().top + scrollY;
-                        const header = document.querySelector('.header');
-                        if(header){
-                            goToBlockValue -= header.offsetHeight;
-                        }
-                        window.scrollTo({
-                            top: goToBlockValue,
-                            behavior: "smooth"
-                        });
-                        e.preventDefault();
-                    }
-                } */
+        if (targetElement.closest('[data-goto]')) {
+            const link = targetElement.closest('[data-goto]');
+            const goToBlock = document.querySelector(link.dataset.goto);
+            if (goToBlock) {
+                let goToBlockValue = goToBlock.getBoundingClientRect().top + scrollY;
+                const header = document.querySelector('.header');
+                if (header) {
+                    goToBlockValue -= header.offsetHeight;
+                }
+                window.scrollTo({
+                    top: goToBlockValue,
+                    behavior: "smooth"
+                });
+                e.preventDefault();
+            }
+        }
     }
 
     const brands = document.querySelector('.brands');
@@ -155,5 +151,41 @@ window.onload = function () {
         });
     } else {
         brands.classList.add('mobile');
+    }
+
+    const animItems = document.querySelectorAll('.anim-item');
+    if (animItems.length > 0) {
+        window.addEventListener('scroll', animOnScroll);
+        function animOnScroll() {
+            for (let index = 0; index < animItems.length; index++) {
+                const animItem = animItems[index];
+                const animItemHeight = animItem.offsetHeight;
+                const animItemOffset = offset(animItem).top;
+                const animStart = 4;
+
+                let animItemPoint = window.innerHeight - animItemHeight / animStart;
+                if (animItemHeight > window.innerHeight) {
+                    animItemPoint = window.innerHeight - window.innerHeight / animStart;
+                }
+
+                if ((scrollY > animItemOffset - animItemPoint) && scrollY < (animItemOffset + animItemHeight)) {
+                    animItem.classList.add('active');
+                } else {
+                    if (!animItem.classList.contains('anim-no-hide')) {
+                        animItem.classList.remove('active');
+                    }
+
+                }
+            }
+        }
+        function offset(el) {
+            const rect = el.getBoundingClientRect(),
+                scrollLeft = window.scrollX || document.documentElement.scrollLeft,
+                scrollTop = window.scrollY || document.documentElement.scrollTop;
+            return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+        }
+        setTimeout(() => {
+            animOnScroll();
+        }, 300);
     }
 }
