@@ -89,6 +89,11 @@ window.onload = function () {
         }
         //Плавный скролл навигации
         if (targetElement.closest('[data-goto]')) {
+            if(targetElement.closest('.menu__link')){
+                document.querySelector('.menu__body').classList.remove('open');
+                document.querySelector('.menu__icon').classList.remove('active');
+                document.body.classList.remove('lock');
+            }
             const link = targetElement.closest('[data-goto]');
             const goToBlock = document.querySelector(link.dataset.goto);
             if (goToBlock) {
