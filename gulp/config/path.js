@@ -33,7 +33,14 @@ export const path =  {
         svgicons: `${srcForder}/img/svgicons/**/*.svg`,
         video: `${srcForder}/video/**/*.*`
     },
-    clean: buildForder,
+    clean: {
+        buildForder: buildForder,
+        html: './*.html',
+        js: './js',
+        css: './css',
+        fonts: './fonts',
+        img: './img'
+    },
     buildForder: buildForder,
     srcForder: srcForder,
     rootFolder: rootFolder,

@@ -12,6 +12,7 @@ global.app = {
 
 //импорт задач
 import { copy } from './gulp/tasks/copy.js';
+import { copyDist } from './gulp/tasks/copyDist.js';
 import { reset } from './gulp/tasks/reset.js';
 import { html } from './gulp/tasks/html.js';
 import { server } from './gulp/tasks/server.js';
@@ -41,9 +42,9 @@ const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 const mainTasks = gulp.series(fonts, gulp.parallel(copy, images, html, scss, js, svgicons)); //!если нужно видео добавь video 
 
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
-const build = gulp.series(reset, mainTasks);
-const deployZIP = gulp.series(reset, mainTasks, zip);
-const deployFTP = gulp.series(reset, mainTasks, ftp);
+const build = gulp.series(reset, mainTasks, copyDist);
+const deployZIP = gulp.series(reset, mainTasks, copyDist, zip);
+const deployFTP = gulp.series(reset, mainTasks, copyDist, ftp);
 
 export { dev }
 export { build }
